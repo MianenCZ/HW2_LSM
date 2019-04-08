@@ -17,7 +17,7 @@ namespace HW2_LSM
 	{
 		
 		public Series[] Data;
-
+		
 		public string FileName { get; private set; }
 
 		public Loader(string Path)

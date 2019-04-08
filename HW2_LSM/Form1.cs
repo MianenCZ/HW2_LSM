@@ -12,6 +12,7 @@ namespace HW2_LSM
 {
 	public partial class Form1 : Form
 	{
+		public const string AppName = "LSM Charter";
 		public Form1()
 		{
 			InitializeComponent();
@@ -20,6 +21,7 @@ namespace HW2_LSM
 		public Form1(Loader Input)
 		{
 			InitializeComponent();
+			LoadFrom(Input);
 		}
 
 		private void FormSizeChange(object sender, EventArgs e)
@@ -32,6 +34,15 @@ namespace HW2_LSM
 			this.chart1.Series.Clear();
 			for (int i = 0; i < Input.Data.Length; i++)
 				this.chart1.Series.Add(Input.Data[i]);
+			this.Text = $"{AppName} - {Input.FileName}";
+		}
+
+		private void loadToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			if (openFileDialog1.ShowDialog() == DialogResult.OK)
+			{
+				LoadFrom(new Loader(openFileDialog1.FileName));
+			}
 		}
 	}
 }
