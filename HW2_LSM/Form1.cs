@@ -16,5 +16,22 @@ namespace HW2_LSM
 		{
 			InitializeComponent();
 		}
+
+		public Form1(Loader Input)
+		{
+			InitializeComponent();
+		}
+
+		private void FormSizeChange(object sender, EventArgs e)
+		{
+			this.chart1.Size = new Size(this.Size.Width - 42, this.Size.Height - 89);
+		}
+
+		private void LoadFrom(Loader Input)
+		{
+			this.chart1.Series.Clear();
+			for (int i = 0; i < Input.Data.Length; i++)
+				this.chart1.Series.Add(Input.Data[i]);
+		}
 	}
 }
